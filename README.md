@@ -1,5 +1,5 @@
 # Coquette Studio
-esse repositório foi feito por um desenvolvedor de HTML, CSS E JS, para saber, o site criado por mim, é o site oficial do Coquette Studio, onde voce pode obter o Coquette Hub por ele.
+esse repositório foi feito por um desenvolvedor de HTML, CSS E JS, para saber, o site criado por mim, 12breacknot é o site oficial do Coquette Studio, onde voce pode obter o Coquette Hub por ele.
 # Perguntas Frequentes
 1. **O Site vai ser atualizado?** Sim, será atualizado, constantemente e provavelmente será a UI, ou várias coisas adicionadas no site. O Site é Beta ainda, então, espere bugs. Quaisquer bug contido nele, contate-os a Equipe do Suporte da Coquette Studio, por favor.
 
