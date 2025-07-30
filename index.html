@@ -1,471 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuaU Obfuscator | Secure Your Roblox Scripts</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Coquette Hub : Melhor Script para Brookhaven !</title>
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --rosa-principal: #ff9bb3;
+            --rosa-escuro: #e86d8a;
+            --rosa-claro: #ffc0cb;
+            --texto: #3a3a3a;
+            --fundo: #fff5f7;
         }
-        .code-editor {
-            min-height: 300px;
-            font-family: 'Courier New', monospace;
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .tab-active {
-            border-bottom: 3px solid #3b82f6;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .copy-btn {
-            transition: all 0.2s ease;
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeIn 0.8s forwards, zoomOut 0.8s forwards;
         }
-        .copy-btn:hover {
-            transform: scale(1.05);
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
-        .copy-btn.copied {
-            background-color: #10b981 !important;
+        
+        @keyframes zoomOut {
+            to { transform: scale(1); }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Mochiy Pop One', sans-serif;
+            color: var(--rosa-escuro);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitulo {
+            font-size: 1.1rem;
+            color: var(--rosa-principal);
+            margin-bottom: 20px;
+        }
+        
+        .conteudo {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(233, 109, 138, 0.1);
+            text-align: center;
+        }
+        
+        .script-box {
+            background-color: var(--fundo);
+            border: 2px dashed var(--rosa-principal);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            word-break: break-all;
+            position: relative;
+        }
+        
+        .botao-copiar {
+            background-color: var(--rosa-principal);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(233, 109, 138, 0.3);
+        }
+        
+        .botao-copiar:hover {
+            background-color: var(--rosa-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(233, 109, 138, 0.4);
+        }
+        
+        .botao-copiar:active {
+            transform: translateY(0);
+        }
+        
+        .discord-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .botao-discord {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(88, 101, 242, 0.3);
+        }
+        
+        .botao-discord:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(88, 101, 242, 0.4);
+        }
+        
+        .discord-icon {
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='white' d='M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: var(--rosa-principal);
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--fundo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--rosa-claro);
+            border-top-color: var(--rosa-principal);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Header -->
-    <header class="gradient-bg text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i class="fas fa-code text-3xl mr-3 text-blue-300"></i>
-                    <h1 class="text-2xl md:text-3xl font-bold">
-                        <span class="text-blue-300">Lua</span><span class="text-white">U</span> Obfuscator
-                    </h1>
-                </div>
-                <nav class="flex space-x-4">
-                    <a href="#" class="hover:text-blue-200 transition">Home</a>
-                    <a href="#" class="hover:text-blue-200 transition">Features</a>
-                    <a href="#" class="hover:text-blue-200 transition">FAQ</a>
-                    <a href="#" class="hover:text-blue-200 transition">Contact</a>
-                </nav>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Coquette Hub</h1>
+            <p class="subtitulo">Melhor Script de Brookhaven!</p>
+        </header>
+        
+        <main class="conteudo">
+            <h2>Copie o Script Aqui!</h2>
+            <p>Copie o script abaixo e cole no seu Executor:</p>
+            
+            <div class="script-box">
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Daivd977/Deivd999/refs/heads/main/pessal"))()
             </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Protect Your Roblox Lua Scripts</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-blue-100">
-                Secure your LuaU scripts with our advanced obfuscation technology to prevent theft and unauthorized use.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105">
-                    <i class="fas fa-bolt mr-2"></i> Obfuscate Now
-                </button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105">
-                    <i class="fas fa-book mr-2"></i> Learn More
-                </button>
+            
+            <button class="botao-copiar" id="copiarScript">Copiar Script</button>
+            
+            <div class="discord-container">
+                <a href="https://discord.gg/mXS2k2xR5W" target="_blank" class="botao-discord">
+                    <span class="discord-icon"></span>
+                    Entre no nosso Servidor de Discord
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
-            <!-- Tabs -->
-            <div class="flex border-b border-gray-200">
-                <button id="input-tab" class="tab-active py-4 px-6 font-medium text-blue-600 focus:outline-none">
-                    <i class="fas fa-pencil-alt mr-2"></i>Input Script
-                </button>
-                <button id="output-tab" class="py-4 px-6 font-medium text-gray-500 hover:text-blue-600 focus:outline-none">
-                    <i class="fas fa-lock mr-2"></i>Obfuscated Output
-                </button>
-                <button id="settings-tab" class="py-4 px-6 font-medium text-gray-500 hover:text-blue-600 focus:outline-none">
-                    <i class="fas fa-cog mr-2"></i>Settings
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="p-6">
-                <!-- Input Tab Content -->
-                <div id="input-content" class="block">
-                    <div class="mb-4">
-                        <textarea id="input-code" class="code-editor w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Paste your LuaU script here..."></textarea>
-                    </div>
-                    <div class="flex flex-wrap justify-between items-center">
-                        <div class="mb-4 sm:mb-0">
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" checked>
-                                <span class="ml-2 text-gray-700">Enable Minification</span>
-                            </label>
-                            <label class="inline-flex items-center ml-4">
-                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" checked>
-                                <span class="ml-2 text-gray-700">String Encryption</span>
-                            </label>
-                        </div>
-                        <button id="obfuscate-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-105">
-                            <i class="fas fa-lock mr-2"></i> Obfuscate Script
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Output Tab Content -->
-                <div id="output-content" class="hidden">
-                    <div class="relative mb-4">
-                        <textarea id="output-code" class="code-editor w-full p-4 border border-gray-300 rounded-lg bg-gray-50" readonly></textarea>
-                        <button id="copy-btn" class="copy-btn absolute top-2 right-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
-                            <i class="fas fa-copy mr-2"></i>Copy
-                        </button>
-                    </div>
-                    <div class="flex flex-wrap justify-between items-center">
-                        <div class="text-sm text-gray-600">
-                            <span id="char-count">0</span> characters | 
-                            <span id="line-count">0</span> lines | 
-                            <span id="size">0 KB</span>
-                        </div>
-                        <div>
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mr-2">
-                                <i class="fas fa-download mr-2"></i>Download
-                            </button>
-                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
-                                <i class="fas fa-redo mr-2"></i>Obfuscate Again
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Settings Tab Content -->
-                <div id="settings-content" class="hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 class="text-lg font-medium text-gray-900 mb-4">Obfuscation Level</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <input id="low-level" name="obfuscation-level" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
-                                    <label for="low-level" class="ml-3 block text-sm font-medium text-gray-700">
-                                        Low (Fastest)
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input id="medium-level" name="obfuscation-level" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                    <label for="medium-level" class="ml-3 block text-sm font-medium text-gray-700">
-                                        Medium (Recommended)
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input id="high-level" name="obfuscation-level" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                    <label for="high-level" class="ml-3 block text-sm font-medium text-gray-700">
-                                        High (Most Secure)
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-medium text-gray-900 mb-4">Advanced Options</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <input id="anti-tamper" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
-                                    <label for="anti-tamper" class="ml-3 block text-sm font-medium text-gray-700">
-                                        Anti-Tamper Protection
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input id="debug-removal" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
-                                    <label for="debug-removal" class="ml-3 block text-sm font-medium text-gray-700">
-                                        Remove Debug Info
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input id="control-flow" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                    <label for="control-flow" class="ml-3 block text-sm font-medium text-gray-700">
-                                        Control Flow Obfuscation
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium text-gray-900 mb-4">Custom Variables</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <div>
-                                <label for="var-prefix" class="block text-sm font-medium text-gray-700">Variable Prefix</label>
-                                <input type="text" id="var-prefix" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" value="_">
-                            </div>
-                            <div>
-                                <label for="var-length" class="block text-sm font-medium text-gray-700">Min Length</label>
-                                <input type="number" id="var-length" min="3" max="20" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" value="8">
-                            </div>
-                            <div>
-                                <label for="var-charset" class="block text-sm font-medium text-gray-700">Character Set</label>
-                                <select id="var-charset" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="alphanumeric">Alphanumeric</option>
-                                    <option value="hexadecimal">Hexadecimal</option>
-                                    <option value="unicode">Unicode Symbols</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Features Section -->
-        <div class="mt-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Our Obfuscator?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-shield-alt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Military-Grade Protection</h3>
-                    <p class="text-gray-600">Our advanced obfuscation techniques make your scripts virtually impossible to reverse engineer, protecting your hard work.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-bolt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Lightning Fast</h3>
-                    <p class="text-gray-600">Process scripts in milliseconds with our optimized obfuscation engine, even for large codebases.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-cogs text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Customizable Settings</h3>
-                    <p class="text-gray-600">Fine-tune the obfuscation level to balance between performance and security for your specific needs.</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- FAQ Section -->
-    <section class="bg-gray-50 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <button class="faq-btn flex justify-between items-center w-full text-left font-medium text-lg">
-                        <span>Will obfuscation affect my script's performance?</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content mt-3 hidden text-gray-600">
-                        Minimal impact. Our obfuscator is optimized to maintain performance while providing maximum security. Higher obfuscation levels may have a slightly more noticeable effect.
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <button class="faq-btn flex justify-between items-center w-full text-left font-medium text-lg">
-                        <span>Is this obfuscator detectable by Roblox?</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content mt-3 hidden text-gray-600">
-                        No, our obfuscation methods are completely undetectable by Roblox's anti-cheat systems. We ensure the output remains fully functional while being secure.
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <button class="faq-btn flex justify-between items-center w-full text-left font-medium text-lg">
-                        <span>Can I obfuscate large scripts?</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="faq-content mt-3 hidden text-gray-600">
-                        Yes, our obfuscator can handle scripts of any size. For very large scripts (10,000+ lines), we recommend using the Medium obfuscation level for optimal performance.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-code text-blue-400 mr-2"></i> LuaU Obfuscator
-                    </h3>
-                    <p class="text-gray-400">Protecting your Roblox scripts since 2023. Advanced obfuscation for LuaU scripts.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Obfuscator</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Support</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">API</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-youtube"></i></a>
-                    </div>
-                    <p class="text-gray-400">Subscribe to our newsletter for updates</p>
-                    <div class="mt-2 flex">
-                        <input type="email" placeholder="Your email" class="px-3 py-2 bg-gray-800 text-white rounded-l focus:outline-none w-full">
-                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 LuaU Obfuscator. All rights reserved.</p>
-            </div>
-        </div>
+        </main>
+    </div>
+    
+    <footer>
+        <p>Todos os direitos reservados &copy; Coquette Studio</p>
     </footer>
-
+    
     <script>
-        // Tab switching functionality
-        const tabs = {
-            input: {
-                tab: document.getElementById('input-tab'),
-                content: document.getElementById('input-content')
-            },
-            output: {
-                tab: document.getElementById('output-tab'),
-                content: document.getElementById('output-content')
-            },
-            settings: {
-                tab: document.getElementById('settings-tab'),
-                content: document.getElementById('settings-content')
-            }
-        };
-
-        function switchTab(activeTab) {
-            // Reset all tabs
-            Object.values(tabs).forEach(tab => {
-                tab.tab.classList.remove('tab-active', 'text-blue-600');
-                tab.tab.classList.add('text-gray-500');
-                tab.content.classList.add('hidden');
-            });
-            
-            // Activate selected tab
-            activeTab.tab.classList.add('tab-active', 'text-blue-600');
-            activeTab.tab.classList.remove('text-gray-500');
-            activeTab.content.classList.remove('hidden');
-        }
-
-        tabs.input.tab.addEventListener('click', () => switchTab(tabs.input));
-        tabs.output.tab.addEventListener('click', () => switchTab(tabs.output));
-        tabs.settings.tab.addEventListener('click', () => switchTab(tabs.settings));
-
-        // Obfuscation functionality (simplified for demo)
-        document.getElementById('obfuscate-btn').addEventListener('click', function() {
-            const inputCode = document.getElementById('input-code').value;
-            
-            if (!inputCode.trim()) {
-                alert('Please enter some Lua code to obfuscate!');
-                return;
-            }
-            
-            // Simulate obfuscation (in a real app, this would be more complex)
-            let obfuscatedCode = `-- Obfuscated with LuaU Obfuscator\n`;
-            obfuscatedCode += `-- Original size: ${inputCode.length} characters\n\n`;
-            
-            // Simple obfuscation for demo purposes
-            obfuscatedCode += `local ${generateRandomVar()} = (function()\n`;
-            obfuscatedCode += `    local ${generateRandomVar()} = {\n`;
-            
-            // Split code into lines and obfuscate each
-            const lines = inputCode.split('\n');
-            lines.forEach((line, i) => {
-                if (line.trim()) {
-                    obfuscatedCode += `        [${i+1}] = "${btoa(line)}",\n`;
-                }
-            });
-            
-            obfuscatedCode += `    }\n\n`;
-            obfuscatedCode += `    local ${generateRandomVar()} = ""\n`;
-            obfuscatedCode += `    for ${generateRandomVar()}, ${generateRandomVar()} in pairs(${generateRandomVar()}) do\n`;
-            obfuscatedCode += `        ${generateRandomVar()} = ${generateRandomVar()} .. atob(${generateRandomVar()}) .. "\\n"\n`;
-            obfuscatedCode += `    end\n`;
-            obfuscatedCode += `    return ${generateRandomVar()}\n`;
-            obfuscatedCode += `end)()\n\n`;
-            obfuscatedCode += `loadstring(${generateRandomVar()})()`;
-            
-            // Update output
-            document.getElementById('output-code').value = obfuscatedCode;
-            updateStats(obfuscatedCode);
-            
-            // Switch to output tab
-            switchTab(tabs.output);
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading').style.opacity = '0';
+                setTimeout(function() {
+                    document.querySelector('.loading').style.display = 'none';
+                }, 500);
+            }, 1000);
         });
-
-        function generateRandomVar() {
-            const prefix = document.getElementById('var-prefix').value || '_';
-            const length = parseInt(document.getElementById('var-length').value) || 8;
-            const charset = document.getElementById('var-charset').value;
+        
+        // Copy script button
+        document.getElementById('copiarScript').addEventListener('click', function() {
+            const scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/Daivd977/Deivd999/refs/heads/main/pessal"))()`;
             
-            let chars;
-            if (charset === 'hexadecimal') {
-                chars = '0123456789abcdef';
-            } else if (charset === 'unicode') {
-                chars = 'ξψωφβμλκζηθιεδγβα';
-            } else {
-                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            }
-            
-            let result = prefix;
-            for (let i = 0; i < length; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return result;
-        }
-
-        function updateStats(code) {
-            const charCount = code.length;
-            const lineCount = code.split('\n').length;
-            const size = (charCount / 1024).toFixed(2);
-            
-            document.getElementById('char-count').textContent = charCount;
-            document.getElementById('line-count').textContent = lineCount;
-            document.getElementById('size').textContent = size + ' KB';
-        }
-
-        // Copy functionality
-        document.getElementById('copy-btn').addEventListener('click', function() {
-            const outputCode = document.getElementById('output-code');
-            outputCode.select();
-            document.execCommand('copy');
-            
-            const copyBtn = document.getElementById('copy-btn');
-            copyBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
-            copyBtn.classList.add('copied');
-            
-            setTimeout(() => {
-                copyBtn.innerHTML = '<i class="fas fa-copy mr-2"></i>Copy';
-                copyBtn.classList.remove('copied');
-            }, 2000);
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('i');
+            navigator.clipboard.writeText(scriptText).then(function() {
+                const btn = document.getElementById('copiarScript');
+                btn.textContent = 'Copiado!';
+                btn.style.backgroundColor = '#8ce68c';
                 
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    icon.style.transform = 'rotate(180deg)';
-                } else {
-                    content.classList.add('hidden');
-                    icon.style.transform = 'rotate(0deg)';
-                }
+                setTimeout(function() {
+                    btn.textContent = 'Copiar Script';
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Falha ao copiar: ', err);
             });
-        });
-
-        // Update stats when output changes
-        document.getElementById('output-code').addEventListener('input', function() {
-            updateStats(this.value);
         });
     </script>
 </body>
