@@ -1,0 +1,25 @@
+LA Store - Como Subir no Vercel
+
+1. Crie esta estrutura de pastas:
+   la-store/
+     ├── public/
+     ├── api/
+     └── vercel.json
+
+2. Instale o Vercel CLI:
+   npm install -g vercel
+
+3. Faça login:
+   vercel login
+
+4. Entre na pasta e suba:
+   vercel
+
+5. Quando pedir, adicione:
+   Nome da variável: CLIENT_SECRET
+   Valor: [seu client secret do Discord]
+
+6. Acesse seu site!
+
+Dica: Pegue o CLIENT_SECRET em:
+   https://discord.com/developers/applications → seu app → General Information
